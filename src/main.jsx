@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import marked from 'marked'
 
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false
+})
 
 class ReactWrapper extends Component {
 
@@ -11,9 +22,7 @@ class ReactWrapper extends Component {
 
   render() {
     return (
-      <section>
-        <h1>Hello!</h1>
-        <p> Welcome to my website </p>
+      <section dangerouslySetInnerHTML={{__html: marked('## Hi!\n```js\nconsole.log(\'This looks cool!\')\n```')}}>
       </section>
     )
   }

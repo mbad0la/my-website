@@ -2,10 +2,11 @@
   "name": "my-website",
   "version": "1.0.0",
   "description": "Website Repository",
-  "main": "src/index.jsx",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --optimize-minimize"
+    "prestart": "webpack --optimize-minimize",
+    "start": "node server.js"
   },
   "repository": "mbad0la/my-website",
   "author": "Mayank Badola",
@@ -19,6 +20,9 @@
   },
   "dependencies": {
     "aphrodite": "^1.1.0",
+    "axios": "^0.15.2",
+    "express": "^4.14.0",
+    "marked": "^0.3.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0"

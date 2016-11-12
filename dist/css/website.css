@@ -1,0 +1,15 @@
+section {
+  margin: auto;
+  width: 80%;
+}
+
+section > pre {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  color: darkgrey;
+}
+
+section > p > img {
+  width: 100%;
+}
