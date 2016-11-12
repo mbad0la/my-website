@@ -1,3 +1,4 @@
+const fs = require('fs')
 const express = require('express')
 const app = express()
 
@@ -11,6 +12,10 @@ app.get('/css/:file', (req, res) => {
 
 app.get('/media/:file', (req, res) => {
   res.sendFile(__dirname + '/dist/media/' + req.params.file)
+})
+
+app.get('/posts/:post', (req, res) => {
+  res.send({ markdown: fs.readFileSync(__dirname + '/dist/posts/' + req.params.post + '.md').toString() })
 })
 
 app.get(/.*/, (req, res) => {
