@@ -1,13 +1,36 @@
+body {
+  margin: 0;
+}
+
 section {
   margin: auto;
   width: 80%;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+section ul li {
+  line-height: 140%;
+}
+
+section ul li a {
+  text-decoration: none;
 }
 
 section > pre {
-  padding: 10px;
+  font-size: 16px;
+  padding: 20px;
   border-radius: 8px;
-  background-color: whitesmoke;
-  color: darkgrey;
+  background-color: #efefef;
+  color: #4a4747;
+}
+
+section > p {
+  font-size: 16px;
+  line-height: 140%;
+}
+
+section > p > code {
+  font-size: 16px;
 }
 
 section > p > img {
