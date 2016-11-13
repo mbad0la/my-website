@@ -2,13 +2,82 @@ body {
   margin: 0;
 }
 
-section {
-  margin: auto;
-  width: 80%;
-  font-family: 'Ubuntu', sans-serif;
+a {
+  text-decoration: none;
 }
 
+nav > ul {
+  display: block;
+  margin: 0;
+  height: 80px;
+  text-align: center;
+  list-style-type: none;
+}
+
+nav > ul > li {
+  padding-top: 22px;
+  height: 58px;
+  display: inline-block;
+  margin-right: 60px;
+}
+
+nav > ul > li > a {
+  color: #6f6f6f;
+  font-size: 26px;
+  font-family: Roboto Slab, 'sans-serif';
+  display: block;
+  text-decoration: none;
+  transition: all 0.4s;
+}
+
+nav > ul > li:after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 0px;
+  background-color: #1b1b1b;
+  transition: all 0.4s;
+}
+
+nav > ul > li.active > a {
+  color: #1b1b1b;
+}
+
+nav > ul > li.active:after {
+  width: 100%;
+}
+
+
+section {
+  margin: auto;
+  color: #1b1b1b;
+  width: 80%;
+  font-family: 'Lora', serif;
+}
+
+section#blog-posts {
+  margin-top: 40px;
+}
+
+section > h1 {
+  font-size: 32px;
+}
+
+section > h2 {
+  font-size: 28px;
+}
+
+section > h3 {
+  font-size: 24px;
+}
+
+section > h4 {
+  font-size: 22px;
+}
+
+
 section ul li {
+  font-size: 22px;
   line-height: 140%;
 }
 
@@ -25,7 +94,7 @@ section > pre {
 }
 
 section > p {
-  font-size: 16px;
+  font-size: 22px;
   line-height: 140%;
 }
 
@@ -36,3 +105,103 @@ section > p > code {
 section > p > img {
   width: 100%;
 }
+
+/*
+Thanks to this codepen : https://codepen.io/ruandre/pen/howFi
+*/
+
+.soc {
+	display: block;
+	font-size: 0;
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+	text-align: center;
+}
+
+.soc li {
+	display: inline-block;
+	margin: 12px;
+	margin: 1.2rem;
+}
+
+.soc a, .soc svg {
+	display: block;
+}
+
+.soc a {
+	position: relative;
+	height: 50px;
+	width: 50px;
+}
+
+.soc a:hover {
+  cursor: pointer;
+}
+
+.soc svg {
+	height: 100%;
+	width: 100%;
+}
+
+.soc em {
+	font-size: 14px;
+	line-height: 1.5;
+	margin-top: -.75em;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.icon-1:hover, .icon-2:hover, .icon-3:hover, .icon-4:hover, .icon-5:hover, .icon-6:hover, .icon-7:hover, .icon-8:hover, .icon-9:hover, .icon-10:hover, .icon-11:hover, .icon-12:hover, .icon-13:hover, .icon-14:hover, .icon-15:hover, .icon-16:hover, .icon-17:hover, .icon-18:hover, .icon-19:hover, .icon-20:hover, .icon-21:hover, .icon-22:hover, .icon-23:hover, .icon-24:hover, .icon-25:hover, .icon-26:hover, .icon-27:hover, .icon-28:hover, .icon-29:hover, .icon-30:hover {
+	border-radius: 100%;
+	color: #fff;
+	fill: #fff;
+	transform: scale(1.25);
+	transition: background-color .5s, transform .5s ease-out;
+}
+
+.icon-10 {
+	color: #3b5998;
+	fill: #3b5998;
+  /*color: #26d926;
+	fill: #26d926;*/
+}
+
+.icon-10:hover {
+	background: #3b5998;
+}
+
+.icon-13 {
+	color: #000;
+	fill: #000;
+}
+
+.icon-13:hover {
+	background: #000;
+}
+
+.icon-17 {
+	color: #2691d9;
+	fill: #2691d9;
+}
+
+.icon-17:hover {
+	background: #2691d9;
+}
+
+.icon-26 {
+	color: #0084b4;
+	fill: #0084b4;
+}
+
+.icon-26:hover {
+	background: #0084b4;
+}
+
+/*
+Codepen section end
+*/
