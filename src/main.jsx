@@ -20,20 +20,6 @@ marked.setOptions({
   smartypants: false
 })
 
-const myImg = {
-  backgroundImage: 'url(/media/me.jpg)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  float: 'left',
-  width: 58,
-  height: 58,
-  borderRadius: '50%',
-  marginTop: -9,
-  marginRight: 20,
-  boxShadow: '0px 0px 2px #232323'
-}
-
 function beautifyDate(date) {
   if (date === undefined) {
     return ''
@@ -133,7 +119,6 @@ class BlogPostHead extends Component {
     return (
       <div>
         <div className="post-title">
-          <div style={ myImg }></div>
           { this.props.meta.heading }
           <div className="post-date">{ beautifyDate(this.props.meta.date) }</div>
         </div>
@@ -330,6 +315,7 @@ class Nav extends Component {
     return (
       <div>
         <nav style={{ position: 'relative', display: 'block', height: 80, backgroundColor: 'white' }}>
+          <div className="my-img"></div>
           <ul>
             <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
             <li className={ this.state.nav["blog"] ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
