@@ -244,14 +244,26 @@ Responsiveness
     font-size: 4vw;
   }
 
+  .soc {
+    padding: 0px;
+    padding-top: 10px;
+  }
+
+  .soc ul {
+    width: 100%;
+  }
+
   .soc a {
-  	height: 4vw;
-  	width: 4vw;
+  	height: 9vw;
+  	width: 9vw;
+  }
+
+  section#about {
+    width: 80%;
   }
 
   section#about > div {
     margin-top: -2vh;
-    width: 80%;
   }
 
   section#blog-posts > a > div {
