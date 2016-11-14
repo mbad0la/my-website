@@ -55,6 +55,11 @@ section {
   font-family: Open Sans, 'serif';
 }
 
+section#about {
+  text-align: center;
+  width: 60%;
+}
+
 section#blog-posts {
   margin-top: 40px;
 }
@@ -246,6 +251,7 @@ Responsiveness
 
   section#about > div {
     margin-top: -2vh;
+    width: 80%;
   }
 
   section#blog-posts > a > div {

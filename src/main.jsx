@@ -223,7 +223,7 @@ class About extends Component {
 
   render() {
     return (
-      <section id="about" style={{ textAlign: 'center', width: '60%' }}>
+      <section id="about">
         <h1>Howdy!</h1>
         <p>Mayank Badola here.</p>
         <p>
