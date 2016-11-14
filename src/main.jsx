@@ -34,16 +34,11 @@ const myImg = {
   boxShadow: '0px 0px 2px #232323'
 }
 
-const postDate = {
-  float: 'right',
-  fontFamily: 'Lora, "serif"',
-  fontSize: 22,
-  color: 'lightgrey',
-  marginRight: 40,
-  marginTop: 5
-}
-
 function beautifyDate(date) {
+  if (date === undefined) {
+    return ''
+  }
+
   const months = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   let args = date.split('.')
 
@@ -78,6 +73,16 @@ class BlogPostWrapper extends Component {
 
   componentWillMount() {
     this.props.changeRoute('post')
+
+    if (metaCache[this.props.params.post] == undefined) {
+      axios.get('/media/meta.json')
+        .then(res => {
+          res.data.forEach((d,k) => {
+            metaCache[d.post_name] = d.date
+          })
+        })
+        .catch(err => console.log(err))
+    }
   }
 
   render() {
@@ -91,7 +96,6 @@ class BlogPostWrapper extends Component {
       </StickyContainer>
     )
   }
-
 }
 
 class BlogPostHead extends Component {
@@ -124,23 +128,14 @@ class BlogPostHead extends Component {
         backgroundColor: '#88de88',
         boxShadow: '2px 0px 2px lightgreen',
         width: (this.state.barLength / this.props.length) * window.innerWidth
-      },
-      base: {
-        padding: '20px 0px 0px 20px',
-        height: 60,
-        fontSize: '32px',
-        fontWeight: 'bold',
-        fontFamily: 'Roboto Slab, "sans-serif"',
-        backgroundColor: 'white',
-        boxShadow: '2px 0px 2px lightgray'
       }
     })
     return (
       <div>
-        <div className={css(barStyles.base)}>
+        <div className="post-title">
           <div style={ myImg }></div>
           { this.props.meta.heading }
-          <div style={ postDate }>{ beautifyDate(this.props.meta.date) }</div>
+          <div className="post-date">{ beautifyDate(this.props.meta.date) }</div>
         </div>
         <div className={css(barStyles.bar)}></div>
       </div>
@@ -154,7 +149,7 @@ class MarkdownWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      markdown: '# Please be patient while the content loads',
+      markdown: '# Be patient, something is cooking for sure!',
     }
   }
 
@@ -228,14 +223,14 @@ class About extends Component {
 
   render() {
     return (
-      <section style={{ textAlign: 'center', width: '60%' }}>
+      <section id="about" style={{ textAlign: 'center', width: '60%' }}>
         <h1>Howdy!</h1>
         <p>Mayank Badola here.</p>
         <p>
           I will be graduating from Netaji Subhas Institute of Technology in 2017 with B.E. in Computer Engineering.
         </p>
         <p style={{ fontFamily: '"Gloria Hallelujah", cursive' }}>I</p>
-        <p style={{ color: '#ff3131' }}>&#10084;</p>
+        <p style={{ color: '#ff3131', fontSize: 34 }}>&#10084;</p>
         <p style={{ fontFamily: '"Gloria Hallelujah", cursive' }}>{ this.state.love[this.state.pos] }</p>
         <div>
           <ul className="soc">
@@ -281,8 +276,8 @@ class BlogPostList extends Component {
             this.state.posts.map((d, k) => {
               return (
                 <Link key={k} to={`/blog/${d.post_name}`}>
+                  <div style={{ float: 'right', fontSize: 22, marginTop: 2, color: 'rgb(185, 185, 185)' }}>{ beautifyDate(d.date) }</div>
                   <div style={{ fontSize: 44, color: '#000' }}>{ d.post_name.split('-').join(' ') }</div>
-                  <div style={{ float: 'right', fontFamily: 'Cormorant Garamond, "serif"', fontSize: 22, color: 'rgb(185, 185, 185)' }}>{ beautifyDate(d.date) }</div>
                   <div style={{ fontSize: 26, color: '#1b1b1b', marginBottom: 50 }}>{ d.summary }</div>
                 </Link>
               )

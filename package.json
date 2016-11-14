@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "webpack --optimize-minimize",
+    "transpile": "webpack --optimize-minimize",
+    "prestart": "webpack",
     "start": "node server.js"
   },
   "repository": "mbad0la/my-website",

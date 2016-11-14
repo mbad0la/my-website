@@ -52,7 +52,7 @@ section {
   margin: auto;
   color: #1b1b1b;
   width: 80%;
-  font-family: 'Lora', serif;
+  font-family: Open Sans, 'serif';
 }
 
 section#blog-posts {
@@ -60,24 +60,25 @@ section#blog-posts {
 }
 
 section > h1 {
-  font-size: 32px;
+  font-size: 30px;
+  font-family: Roboto Slab, 'sans-serif';
 }
 
 section > h2 {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 section > h3 {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 section > h4 {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 
 section ul li {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 140%;
 }
 
@@ -94,16 +95,34 @@ section > pre {
 }
 
 section > p {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 140%;
 }
 
 section > p > code {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 section > p > img {
   width: 100%;
+}
+
+.post-title {
+  padding: 20px 0px 0px 20px;
+  height: 60px;
+  font-size: 32px;
+  font-weight: bold;
+  font-family: Open Sans, "sans-serif";
+  background-color: white;
+  box-shadow: 2px 0px 2px lightgray;
+}
+
+.post-date {
+  float: right;
+  font-size: 22px;
+  color: lightgrey;
+  margin-right: 40px;
+  margin-top: 5px;
 }
 
 /*
@@ -205,3 +224,57 @@ Thanks to this codepen : https://codepen.io/ruandre/pen/howFi
 /*
 Codepen section end
 */
+
+/*
+Responsiveness
+*/
+
+@media screen and (max-width: 450px) {
+
+  section > h1 {
+    font-size: 7vw;
+  }
+
+  section > p {
+    font-size: 4vw;
+  }
+
+  .soc a {
+  	height: 4vw;
+  	width: 4vw;
+  }
+
+  section#about > div {
+    margin-top: -2vh;
+  }
+
+  section#blog-posts > a > div {
+    font-size: 5vw!important;
+  }
+
+  section#blog-posts > a > div:first-child {
+    font-size: 4vw!important;
+  }
+
+  section#blog-posts > a > div:last-child {
+    font-size: 4vw!important;
+  }
+
+  section#blog-post > pre, section#blog-post > p > code {
+    font-size: 3vw!important;
+    overflow: scroll;
+  }
+
+  section#blog-post > p, section#blog-post ul li {
+    font-size: 3.5vw!important;
+  }
+
+  .post-title {
+    font-size: 6vw!important;
+  }
+
+  .post-date {
+    font-size: 5vw!important;
+  }
+
+}
