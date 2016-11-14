@@ -188,6 +188,8 @@ class About extends Component {
         "machine learning",
         "react",
         "javaScript",
+        "diversity",
+        "pizza",
         "call of duty",
         "web developement",
         "mongodb",
@@ -195,13 +197,19 @@ class About extends Component {
         "data redundancy",
         "scalability",
         "linting",
-        "dota",
+        "Dota",
+        "APIs",
         "development pipelines",
         "real-time analytics",
         "teaching",
+        "John Petrucci",
         "hotel california",
         "robustness",
-        "technology"
+        "technology",
+        "spaceX",
+        "marvel studios",
+        "game of thrones",
+        "westworld"
       ]
     }
     this.shiftOutput = this.shiftOutput.bind(this)
@@ -287,7 +295,7 @@ class BlogPostList extends Component {
       )
     } else {
       return (
-        <section style={{ textAlign: 'center', fontSize: 36 }} id="blog-posts">Sorry, but I don't have any posts yet!</section>
+        <section style={{ textAlign: 'center', fontSize: 32 }} id="blog-posts">Hang on, oh faithful one!</section>
       )
     }
   }
