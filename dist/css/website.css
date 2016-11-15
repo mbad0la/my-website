@@ -3,6 +3,8 @@ body {
 }
 
 a {
+  position: relative;
+  display: block;
   text-decoration: none;
 }
 
@@ -127,7 +129,9 @@ section > p > img {
 }
 
 .post-list-date {
-  float: right;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
   font-size: 18px;
   margin-top: 2px;
   color: rgb(185, 185, 185);
@@ -418,7 +422,7 @@ Responsiveness
 
 
   .post-list-date {
-    float: none;
+    position: initial;
   }
 
   .post-title {
