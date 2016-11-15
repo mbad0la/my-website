@@ -126,6 +126,13 @@ section > p > img {
   box-shadow: 0px 0px 2px #232323;
 }
 
+.post-list-date {
+  float: right;
+  font-size: 18px;
+  margin-top: 2px;
+  color: rgb(185, 185, 185);
+}
+
 .post-title {
   padding: 20px 0px 15px 20px;
   font-size: 32px;
@@ -133,6 +140,7 @@ section > p > img {
   font-family: Open Sans, "sans-serif";
   background-color: white;
   box-shadow: 2px 0px 2px lightgray;
+  text-transform: capitalize;
 }
 
 .post-date {
@@ -316,11 +324,17 @@ Responsiveness
     font-size: 4vw!important;
   }
 
+
+  .post-list-date {
+    float: none;
+  }
+
   .post-title {
     font-size: 5vw!important;
   }
 
   .post-date {
+    float: none;
     font-size: 4vw!important;
     margin-top: 2px!important;
   }

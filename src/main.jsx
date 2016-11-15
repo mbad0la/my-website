@@ -269,9 +269,9 @@ class BlogPostList extends Component {
             this.state.posts.map((d, k) => {
               return (
                 <Link key={k} to={`/blog/${d.post_name}`}>
-                  <div style={{ float: 'right', fontSize: 22, marginTop: 2, color: 'rgb(185, 185, 185)' }}>{ beautifyDate(d.date) }</div>
-                  <div style={{ fontSize: 44, color: '#000' }}>{ d.post_name.split('-').join(' ') }</div>
-                  <div style={{ fontSize: 26, color: '#1b1b1b', marginBottom: 50 }}>{ d.summary }</div>
+                  <div className="post-list-date">{ beautifyDate(d.date) }</div>
+                  <div style={{ fontSize: 36, color: '#000', textTransform: 'capitalize' }}>{ d.post_name.split('-').join(' ') }</div>
+                  <div style={{ fontSize: 20, color: '#1b1b1b', marginBottom: 50 }}>{ d.summary }</div>
                 </Link>
               )
             })
