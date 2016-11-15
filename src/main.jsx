@@ -280,7 +280,9 @@ class BlogPostList extends Component {
       )
     } else {
       return (
-        <section style={{ textAlign: 'center', fontSize: 32 }} id="blog-posts">Hang on, oh faithful one!</section>
+        <section style={{ textAlign: 'center', fontSize: 32 }} id="blog-posts">
+          <div id="load"></div>
+        </section>
       )
     }
   }
