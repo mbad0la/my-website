@@ -3,9 +3,12 @@ body {
 }
 
 a {
+  text-decoration: none;
+}
+
+section#blog-posts > a {
   position: relative;
   display: block;
-  text-decoration: none;
 }
 
 nav > ul {
