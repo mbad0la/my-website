@@ -305,7 +305,7 @@ class MarkdownWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      markdown: '# Be patient, something is cooking for sure!',
+      markdown: null,
     }
   }
 
@@ -320,9 +320,18 @@ class MarkdownWrapper extends Component {
   }
 
   render() {
-    return (
-      <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>
-    )
+    if (this.state.markdown != null) {
+      return (
+        <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>
+      )
+    } else {
+      return (
+        <section id="blog-post">
+          <div id="load"></div>
+        </section>
+      )
+    }
+
   }
 
 }

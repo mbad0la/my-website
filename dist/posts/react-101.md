@@ -1,14 +1,20 @@
 ## What is React?
 
-[React](https://facebook.github.io/react/) is one of the best front-end frameworks in the industry at the moment. A minor proof of fact may be that it has more stars on GitHub than Angular, a massively appreciated MVC by Google.
+[React](https://facebook.github.io/react/) is one of the best front-end libraries in the industry at the moment.
 
-It celebrates modularity and interactivity in user interfaces through declarative views that use one-way data binding (from parent to child), resulting in seamless view updations.
+It celebrates modularity and interactivity in user interfaces through declarative views that use one-way data flow (from parent to child) and data binding, resulting in seamless view updations and code management.
+
+## The Shortcut
+
+Facebook did all of us a favour by creating a [CLI-tool](https://github.com/facebookincubator/create-react-app) to generate a react-app boilerplate. Things have never been easier.
+
+Although if you're in for a challenge, here's the manual way...
 
 ## The Struggle is Real!
 
-Although, to start building projects in React, there is a substantial development overhead. One needs to setup a development environment i.e. provision dependencies.
+To start building projects in React, there is a substantial development overhead. One needs to setup a development environment i.e. provision dependencies.
 
-It was quite confusing to me when I started out, still tweaking around with jQuery and Angular a bit, all but oblivious to what modules, bundlers, transpilers and dependencies (Ah! Those naive days) are. All I had ever done was include jQuery or Angular from a CDN in the browser and structure some pretty spaghetti of a code.
+It was quite confusing to me when I started out as I was still tweaking around with jQuery and Angular a bit, all but oblivious to what modules, bundlers, transpilers and dependencies (Ah! Those naive days) are. All I had ever done was include jQuery or Angular from a CDN in the browser and structure some pretty spaghetti of a code.
 
 But it was all worth it. Such an experience let's you gain perspective on the fact that no matter how much you already know, there is still a plenty more to absorb.
 
@@ -68,9 +74,9 @@ This process is called transpiling, which will be implemented here by the develo
 
 Adding to our meta-data requirements
 ```bash
-npm i --D webpack babel-core babel-loader babel-preset-es2015 babel-preset-react
+npm i -D webpack babel-core babel-loader babel-preset-es2015 babel-preset-react
 ```
-The `--D` option writes down these packages as development dependencies in our `package.json`.
+The `-D` option writes down these packages as development dependencies in our `package.json`.
 
 Congrats! We have succesfully installed all the dependencies in our project. Now we just need to provision a `webpack.config.js` file which is a configuration file for webpack, directing it which files to process and how.
 
