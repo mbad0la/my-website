@@ -1,5 +1,10 @@
 [
   {
+    "post_name": "react-101",
+    "date": "16.11.2016",
+    "summary": "Setting up a Development Environment for React"
+  },
+  {
     "post_name": "a-taste-of-cloud",
     "date": "14.11.2016",
     "summary": "A brief overview of Cloud and AWS"
