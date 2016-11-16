@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, NotFoundRoute, Link, browserHistory } from 'react-router'
 
-import { StyleSheet, css } from 'aphrodite'
 import { StickyContainer, Sticky } from 'react-sticky'
 import marked from 'marked'
 import axios from 'axios'
@@ -43,114 +42,42 @@ function beautifyDate(date) {
   return args.join(' ')
 }
 
-class BlogPostWrapper extends Component {
+class Nav extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      scrollWidth: 0
+      nav: {
+        about: true,
+        blog: false
+      }
     }
-    this.changeScrollWidth = this.changeScrollWidth.bind(this)
+    this.changeRoute = this.changeRoute.bind(this)
   }
 
-  changeScrollWidth(w) {
-    this.setState({ scrollWidth: w })
-  }
-
-  componentWillMount() {
-    this.props.changeRoute('post')
-
-    if (metaCache[this.props.params.post] == undefined) {
-      axios.get('/media/meta.json')
-        .then(res => {
-          res.data.forEach((d,k) => {
-            metaCache[d.post_name] = d.date
-          })
-        })
-        .catch(err => console.log(err))
-    }
-  }
-
-  render() {
-    let cleanHeading = this.props.params.post.split('-').join(' ')
-    return (
-      <StickyContainer>
-        <Sticky>
-          <BlogPostHead meta={{ heading: cleanHeading, date: metaCache[this.props.params.post] }} length={this.state.scrollWidth}/>
-        </Sticky>
-        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post}/>
-      </StickyContainer>
-    )
-  }
-}
-
-class BlogPostHead extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      barLength: 0
-    }
-    this.handleScroll = this.handleScroll.bind(this)
-  }
-
-  handleScroll(e) {
-    this.setState({ barLength: e.srcElement.body.scrollTop })
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
-  }
-
-  render() {
-    let barStyles = StyleSheet.create({
-      bar: {
-        display: 'block',
-        height: 4,
-        backgroundColor: '#88de88',
-        boxShadow: '2px 0px 2px lightgreen',
-        width: (this.state.barLength / this.props.length) * window.innerWidth
+  changeRoute(newRoute) {
+    let about = newRoute === "about" ? true : false
+    let blog = newRoute === "blog" ? true : false
+    this.setState({
+      "nav": {
+        "about": about,
+        "blog": blog
       }
     })
-    return (
-      <div>
-        <div className="post-title">
-          { this.props.meta.heading }
-          <div className="post-date">{ beautifyDate(this.props.meta.date) }</div>
-        </div>
-        <div className={css(barStyles.bar)}></div>
-      </div>
-    )
-  }
-
-}
-
-class MarkdownWrapper extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      markdown: '# Be patient, something is cooking for sure!',
-    }
-  }
-
-  componentWillMount() {
-    axios.get('/posts/' + this.props.post)
-      .then(res => {
-        this.setState(res.data)
-
-        setTimeout(() => this.props.updateLength(document.documentElement.scrollHeight - window.innerHeight), 0)
-      })
-      .catch(err => console.log(err))
   }
 
   render() {
     return (
-      <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>
+      <div>
+        <nav style={{ position: 'relative', display: 'block', height: 80, backgroundColor: 'white' }}>
+          <div className="my-img"></div>
+          <ul>
+            <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
+            <li className={ this.state.nav["blog"] ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
+          </ul>
+        </nav>
+        { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute }) }
+      </div>
     )
   }
 
@@ -289,42 +216,112 @@ class BlogPostList extends Component {
 
 }
 
-class Nav extends Component {
+class BlogPostWrapper extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      nav: {
-        about: true,
-        blog: false
-      }
+      scrollWidth: 0
     }
-    this.changeRoute = this.changeRoute.bind(this)
+    this.changeScrollWidth = this.changeScrollWidth.bind(this)
   }
 
-  changeRoute(newRoute) {
-    let about = newRoute === "about" ? true : false
-    let blog = newRoute === "blog" ? true : false
-    this.setState({
-      "nav": {
-        "about": about,
-        "blog": blog
-      }
-    })
+  changeScrollWidth(w) {
+    this.setState({ scrollWidth: w })
+  }
+
+  componentWillMount() {
+    this.props.changeRoute('post')
+
+    if (metaCache[this.props.params.post] == undefined) {
+      axios.get('/media/meta.json')
+        .then(res => {
+          res.data.forEach((d,k) => {
+            metaCache[d.post_name] = d.date
+          })
+        })
+        .catch(err => console.log(err))
+    }
+  }
+
+  render() {
+    let cleanHeading = this.props.params.post.split('-').join(' ')
+    return (
+      <StickyContainer>
+        <Sticky>
+          <BlogPostHead meta={{ heading: cleanHeading, date: metaCache[this.props.params.post] }} length={this.state.scrollWidth}/>
+        </Sticky>
+        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post}/>
+      </StickyContainer>
+    )
+  }
+}
+
+class BlogPostHead extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      barLength: 0
+    }
+    this.handleScroll = this.handleScroll.bind(this)
+  }
+
+  handleScroll(e) {
+    this.setState({ barLength: e.srcElement.body.scrollTop })
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  render() {
+    let barStyles = {
+      display: 'block',
+      height: 4,
+      backgroundColor: '#88de88',
+      boxShadow: '2px 0px 2px lightgreen',
+      width: (this.state.barLength / this.props.length) * window.innerWidth
+    }
+    return (
+      <div>
+        <div className="post-title">
+          { this.props.meta.heading }
+          <div className="post-date">{ beautifyDate(this.props.meta.date) }</div>
+        </div>
+        <div style={ barStyles }></div>
+      </div>
+    )
+  }
+
+}
+
+class MarkdownWrapper extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      markdown: '# Be patient, something is cooking for sure!',
+    }
+  }
+
+  componentWillMount() {
+    axios.get('/posts/' + this.props.post)
+      .then(res => {
+        this.setState(res.data)
+
+        setTimeout(() => this.props.updateLength(document.documentElement.scrollHeight - window.innerHeight), 0)
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
     return (
-      <div>
-        <nav style={{ position: 'relative', display: 'block', height: 80, backgroundColor: 'white' }}>
-          <div className="my-img"></div>
-          <ul>
-            <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
-            <li className={ this.state.nav["blog"] ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
-          </ul>
-        </nav>
-        { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute }) }
-      </div>
+      <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>
     )
   }
 

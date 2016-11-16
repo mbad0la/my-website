@@ -20,7 +20,6 @@
     "webpack": "^2.0.1-beta"
   },
   "dependencies": {
-    "aphrodite": "^1.1.0",
     "axios": "^0.15.2",
     "express": "^4.14.0",
     "marked": "^0.3.6",
