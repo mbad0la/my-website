@@ -6,7 +6,7 @@ It celebrates modularity and interactivity in user interfaces through declarativ
 
 ## The Shortcut
 
-Facebook did all of us a favour by creating a [CLI-tool](https://github.com/facebookincubator/create-react-app) to generate a react-app boilerplate. Things have never been easier.
+Facebook did all of us a favour by creating a [cli-tool](https://github.com/facebookincubator/create-react-app) to generate a react-app boilerplate. Things have never been easier.
 
 Although if you're in for a challenge, here's the manual way...
 
@@ -14,7 +14,7 @@ Although if you're in for a challenge, here's the manual way...
 
 To start building projects in React, there is a substantial development overhead. One needs to setup a development environment i.e. provision dependencies.
 
-It was quite confusing to me when I started out as I was still tweaking around with jQuery and Angular a bit, all but oblivious to what modules, bundlers, transpilers and dependencies (Ah! Those naive days) are. All I had ever done was include jQuery or Angular from a CDN in the browser and structure some pretty spaghetti of a code.
+It was quite confusing to me when I started out, as I was still tweaking around with jQuery and Angular, all but oblivious to what modules, bundlers, transpilers and dependencies (Ah! Those naive days) are. All I had ever done was include jQuery or Angular from a CDN in the browser and structure some pretty spaghetti of a code.
 
 But it was all worth it. Such an experience let's you gain perspective on the fact that no matter how much you already know, there is still a plenty more to absorb.
 
