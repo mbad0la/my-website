@@ -1,5 +1,10 @@
 [
   {
+    "post_name": "hacking-the-hacktober",
+    "date": "21.11.2016",
+    "summary": "All about my experience of Hacktoberfest 2016"
+  },
+  {
     "post_name": "react-101",
     "date": "16.11.2016",
     "summary": "Setting up a Development Environment for React"
