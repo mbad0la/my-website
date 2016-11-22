@@ -1,6 +1,6 @@
 This was the first time I participated in a Hacktoberfest, although oddly enough, I never knew that something like that existed, otherwise I would have claimed some two three t-shirts by now ...
 
-Personally, I found the opportunity to be really fruitful and helped me finally be at ease with the open source community. It is really tough for someone new to open source to get a break that helps them get over the _'am I good enough for this'_ misconception. I myself struggled for around two years until I recently got to interact with the amazing people at [DuckDuckGo](https://duckduckgo.com/about) and then got acquainted with Hacktoberfest.
+Personally, I found the opportunity to be really fruitful and it helped me finally be at ease with the open source community. It is really tough for someone new to open source to get a break that helps them get over the _'am I good enough for this'_ misconception. I myself struggled for around two years until I recently got to interact with the amazing people at [DuckDuckGo](https://duckduckgo.com/about) and then got acquainted with Hacktoberfest.
 
 ## What is Hacktoberfest?
 
@@ -15,9 +15,8 @@ Somebody sure knows how to get developers going!
 ## Tryst with Hoodie
 
 Over the course of Hacktoberfest, I got myself acquainted with an organisation called [Hoodie](http://hood.ie/). I would like to acknowledge the amount of effort they put in for making Hacktoberfest a lovely experience for contributors.
-One of their team, [Gregor Martynus](https://github.com/gr2m) is probably one of best people I've interacted so far!
 
-He was all over the pull requests the entire duration of the Hacktoberfest, helping out and reviewing code brought in by contributors. It was really inspiring to see him manage all that and yet keep it all together somehow. More power to him!
+I'd like to mention a core member of Hoodie, [Gregor Martynus](https://github.com/gr2m), for being an amazing person to interact with. He was all over the pull requests the entire duration of the Hacktoberfest, helping out and reviewing code brought in by contributors. It was really inspiring to see him manage all that and yet keep it all together somehow. More power to him!
 
 Hoodie is an open source framework facilitating the creation of out-of-the-box offline-first applications. Their codebase is in JavaScript and hence me stumbling upon it.
 
@@ -29,11 +28,11 @@ Hoodie's [open source presence](https://github.com/hoodiehq) is probably one of 
 
 ## Testing, for the win!
 
-I had always loved running unit tests on some of my personal projects but to be honest, I found them really cool and hence I did it. But during this Hacktoberfest, I [got to learn](https://github.com/paazmaya/yaml-validator/pull/6) the real strength of writing good tests and providing coverage.
+I love running unit tests on some of my personal projects but to be honest, I find them really cool and hence I do them. But during this Hacktoberfest, I [got to learn](https://github.com/paazmaya/yaml-validator/pull/6) the real strength of writing good tests and providing coverage.
 
 Testing, specifically isn't an after thought, but a plan. Through testing, you can model the behavioural aspects of your code/project and build the functionalities iteratively, until you pass your tests satisfying all your goals.
 
-It let's you plan your functionalities and their ideal behaviour.
+It lets you plan your functionalities and their ideal behaviour.
 
 Although, once you are through an iteration of your project, tests, then play out another crucial role of maintaining the stability of your project. Tests make sure you don't make changes that break your core functionalities. This seems preposterous for someone new to software development, but mind you, when codebases become too large and their are multiple people working on some code that they didn't write, the only thing keeping everything together are the tests!
 
