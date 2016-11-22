@@ -1,5 +1,10 @@
 [
   {
+    "post_name": "dotA-meets-blog",
+    "date": "22.11.2016",
+    "summary": "Let's get you acquainted with DotA"
+  },
+  {
     "post_name": "hacking-the-hacktober",
     "date": "21.11.2016",
     "summary": "All about my experience of Hacktoberfest 2016"
