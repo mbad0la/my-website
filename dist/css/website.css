@@ -477,11 +477,15 @@ Responsiveness
   }
 
   section#projects > a > .repo-ownership {
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
   section#projects > a > .repo-desc {
     font-size: 4vw;
+  }
+
+  nav > ul > li > a {
+    font-size: 20px;
   }
 
   .post-list-date {
