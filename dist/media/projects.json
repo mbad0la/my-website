@@ -1,0 +1,116 @@
+[
+  {
+    "html_url": "https://github.com/mbad0la/Architect",
+    "name": "Architect",
+    "ownership": "Owner",
+    "description": "<p>Highly Extensible Hardware Description Library for JavaScript Developers!</p><p>Hardware is event-driven. And it is functional in nature, having abstractions on abstractions. Makes sense to have JavaScript emulate it doesn't it?</p>",
+    "technologies": [
+      "javascript"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/MiniGitHub",
+    "name": "MiniGitHub",
+    "ownership": "Owner",
+    "description": "<p>A firefox add-on for on the go GitHub minutes, courtesy jpm tool by Mozilla</p>",
+    "technologies": [
+      "javascript",
+      "css",
+      "html"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/octopy",
+    "name": "octopy",
+    "ownership": "Owner",
+    "description": "<p>octopy is the GitHub API wrapper for pythonistas!</p><p>A modular library for maximising GitHub integration into your application</p>",
+    "technologies": [
+      "python"
+    ]
+  },
+  {
+    "html_url": "https://github.com/o-d-i-n/HelloWorld",
+    "name": "HelloWorld",
+    "ownership": "Collaborator",
+    "description": "<p>HelloWorld is a celebration of trending Web Development Frameworks, built using Django, React and Bootstrap</p><p>It is the web platform for Open Development Initiative - NSIT</p>",
+    "technologies": [
+      "python",
+      "javascript",
+      "css",
+      "html"
+    ]
+  },
+  {
+    "html_url": "https://github.com/o-d-i-n/all-contributors-atom",
+    "name": "all-contributors-atom",
+    "ownership": "Collaborator",
+    "description": "<p>A text-editor plugin for Atom, all-contributors-atom automates the generation of markdown code for contributor specifications given by all-contributor specifications for your documentations</p>",
+    "technologies": [
+      "javascript"
+    ]
+  },
+  {
+    "html_url": "https://github.com/prabhakar267/dove",
+    "name": "dove",
+    "ownership": "Collaborator",
+    "description": "<p>Dove is an offline payment service, built on the top of PayTM APIs, which can be used on any mobile device (including legacy mobile devices which don't even have a GUI or provisions for internet connectivity) without installing any additional application</p>",
+    "technologies": [
+      "ruby"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/my-website",
+    "name": "my-website",
+    "ownership": "Owner",
+    "description": "<p>Does this website need any more description?</p><p>Built using React, NodeJS, HTML and CSS. Deployed on AWS!</p>",
+    "technologies": [
+      "javascript"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/understanding-clustering",
+    "name": "understanding-clustering",
+    "ownership": "Owner",
+    "description": "<p>Hands-on exercise on Clustering</p><p>Learnt over the course of Udacity Machine Learning Engineer Nanodegree</p>",
+    "technologies": [
+      "notebook"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/TweetGem",
+    "name": "TweetGem",
+    "ownership": "Owner",
+    "description": "<p>Twitter API wrapper</p><p>Written for exploring Ruby and Twitter API</p>",
+    "technologies": [
+      "ruby"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/Get-ENVS",
+    "name": "Get-ENVS",
+    "ownership": "Owner",
+    "description": "<p>Vagrant-managed VM configurations to service your need for consistent development environments with your collaborators</p>",
+    "technologies": [
+      "ruby",
+      "shell"
+    ]
+  },
+  {
+    "html_url": "https://github.com/o-d-i-n/nyan-cat",
+    "name": "nyan-cat",
+    "ownership": "Collaborator",
+    "description": "<p>nyan-cat is the next iteration of `cat` command line tool, through syntax highlighting</p>",
+    "technologies": [
+      "javascript"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/txtgrow",
+    "name": "txtgrow",
+    "ownership": "Owner",
+    "description": "<p>txtgrow is a jQuery plugin acting as a polyfill for auto-growing textareas</p>",
+    "technologies": [
+      "javascript"
+    ]
+  }
+]

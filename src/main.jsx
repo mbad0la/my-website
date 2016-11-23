@@ -58,10 +58,12 @@ class Nav extends Component {
   changeRoute(newRoute) {
     let about = newRoute === "about" ? true : false
     let blog = newRoute === "blog" ? true : false
+    let projects = newRoute === "projects" ? true : false
     this.setState({
       "nav": {
         "about": about,
-        "blog": blog
+        "blog": blog,
+        "projects": projects
       }
     })
   }
@@ -74,6 +76,7 @@ class Nav extends Component {
           <ul>
             <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
             <li className={ this.state.nav["blog"] ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
+            <li className={ this.state.nav["projects"] ? `active` : `off` }><Link to={`/projects`}>Projects</Link></li>
           </ul>
         </nav>
         { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute }) }
@@ -335,11 +338,85 @@ class MarkdownWrapper extends Component {
 
 }
 
+class ProjectList extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      colorCode: {},
+      projects: []
+    }
+  }
+
+  componentWillMount() {
+    this.props.changeRoute('projects')
+
+    axios.get('/media/colorcode.json')
+      .then(res => {
+        let coding = res.data
+        axios.get('/media/projects.json')
+          .then(res => this.setState({colorCode: coding, projects: res.data}))
+          .catch(err => console.log(err))
+      })
+      .catch(err => console.log(err))
+  }
+
+  render() {
+    return (
+      <section id="projects">
+        {
+          this.state.projects.map((repo, k) => <Repository key={k} colorCodes={this.state.colorCode} meta={repo}/>)
+        }
+      </section>
+    )
+  }
+
+}
+
+class Repository extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <a href={this.props.meta.html_url}>
+        <div className="repo-name">{ this.props.meta.name }</div>
+        <div className="repo-ownership">{ this.props.meta.ownership }</div>
+        <div className="repo-desc" dangerouslySetInnerHTML={{ __html: this.props.meta.description }}></div>
+        <div>
+          {
+            this.props.meta.technologies.map((tech, k) => <ColorCode key={k} color={this.props.colorCodes[tech]}/>)
+          }
+        </div>
+      </a>
+    )
+  }
+}
+
+class ColorCode extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <span style={{display: 'inline-block', width: 20, height: 5, borderRadius: 15, marginRight: 5, backgroundColor: this.props.color}}></span>
+    )
+  }
+
+}
+
 ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={Nav}>
       <IndexRoute component={About}/>
       <Route path="/blog" component={BlogPostList}/>
+      <Route path="/projects" component={ProjectList}/>
       <Route path="/blog/:post" component={BlogPostWrapper}/>
     </Route>
   </Router>

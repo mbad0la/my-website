@@ -69,6 +69,43 @@ section#blog-posts {
   margin-top: 40px;
 }
 
+section#projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+section#projects > a {
+  color: #1b1b1b;
+  margin: 10px;
+  display: block;
+  max-width: 40%;
+  border-radius: 4px;
+  padding: 40px 40px 30px 40px;
+  box-shadow: 0px 0px 0px 2px #f5f5f5;
+}
+
+section#projects > a:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 2px #f1f1f1;
+}
+
+section#projects > a > .repo-name {
+  font-family: Roboto Slab, 'sans-serif';
+  font-size: 28px;
+}
+
+section#projects > a > .repo-ownership {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #bdbdbd;
+}
+
+section#projects > a > .repo-desc {
+  margin-top: 10px;
+}
+
 section > h1 {
   font-size: 30px;
   font-family: Roboto Slab, 'sans-serif';
@@ -360,6 +397,10 @@ Responsiveness
 
 @media screen and (max-width: 450px) {
 
+  nav > ul > li {
+    margin-right: 20px;
+  }
+
   section > h1 {
     font-size: 7vw;
   }
@@ -423,6 +464,25 @@ Responsiveness
     font-size: 4vw!important;
   }
 
+  section#projects {
+    width: 100%;
+  }
+
+  section#projects > a {
+    max-width: 100%;
+  }
+
+  section#projects > a > .repo-name {
+    font-size: 6vw;
+  }
+
+  section#projects > a > .repo-ownership {
+    font-size: 2vw;
+  }
+
+  section#projects > a > .repo-desc {
+    font-size: 4vw;
+  }
 
   .post-list-date {
     position: initial;
