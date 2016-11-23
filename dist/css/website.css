@@ -11,6 +11,13 @@ section#blog-posts > a {
   display: block;
 }
 
+nav {
+  position: 'relative';
+  display: 'block';
+  height: 80px;
+  background-color: white;
+}
+
 nav > ul {
   display: block;
   margin: 0;
@@ -396,6 +403,10 @@ Responsiveness
 */
 
 @media screen and (max-width: 450px) {
+
+  nav {
+    height: 70px;
+  }
 
   nav > ul > li {
     margin-right: 20px;

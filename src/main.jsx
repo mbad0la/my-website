@@ -71,7 +71,7 @@ class Nav extends Component {
   render() {
     return (
       <div>
-        <nav style={{ position: 'relative', display: 'block', height: 80, backgroundColor: 'white' }}>
+        <nav>
           <div className="my-img"></div>
           <ul>
             <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
