@@ -92,7 +92,7 @@
     "description": "<p>Vagrant-managed VM configurations to service your need for consistent development environments with your collaborators</p>",
     "technologies": [
       "ruby",
-      "shell"
+      "bash"
     ]
   },
   {
