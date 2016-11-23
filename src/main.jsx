@@ -362,13 +362,21 @@ class ProjectList extends Component {
   }
 
   render() {
-    return (
-      <section id="projects">
-        {
-          this.state.projects.map((repo, k) => <Repository key={k} colorCodes={this.state.colorCode} meta={repo}/>)
-        }
-      </section>
-    )
+    if (this.state.projects.length != 0) {
+      return (
+        <section id="projects">
+          {
+            this.state.projects.map((repo, k) => <Repository key={k} colorCodes={this.state.colorCode} meta={repo}/>)
+          }
+        </section>
+      )
+    } else {
+      return (
+        <section style={{ textAlign: 'center', fontSize: 32 }} id="blog-posts">
+          <div id="load"></div>
+        </section>
+      )
+    }
   }
 
 }
