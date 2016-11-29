@@ -64,7 +64,9 @@
     "ownership": "Owner",
     "description": "<p>Does this website need any more description?</p><p>Built using React, NodeJS, HTML and CSS. Deployed on AWS!</p>",
     "technologies": [
-      "javascript"
+      "javascript",
+      "html",
+      "css"
     ]
   },
   {
@@ -74,6 +76,17 @@
     "description": "<p>Hands-on exercise on Clustering</p><p>Learnt over the course of Udacity Machine Learning Engineer Nanodegree</p>",
     "technologies": [
       "notebook"
+    ]
+  },
+  {
+    "html_url": "https://github.com/mbad0la/WYSIWYG-editor-task",
+    "name": "WYSIWYG-editor-task",
+    "ownership": "Owner",
+    "description": "<p>A little hacking around with the 'contenteditable' attribute, for a winter intern screening task</p>",
+    "technologies": [
+      "javascript",
+      "html",
+      "css"
     ]
   },
   {
