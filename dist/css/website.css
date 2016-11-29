@@ -80,6 +80,7 @@ section#projects {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 
@@ -409,7 +410,7 @@ Responsiveness
   }
 
   nav > ul > li {
-    margin-right: 20px;
+    margin-right: 35px;
   }
 
   section > h1 {
