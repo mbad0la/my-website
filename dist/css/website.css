@@ -154,6 +154,10 @@ section > p {
   line-height: 140%;
 }
 
+section > blockquote > p {
+  font-size: 18px;
+}
+
 section > p > code {
   font-size: 20px;
 }
@@ -431,6 +435,10 @@ Responsiveness
 
   section > p {
     font-size: 4vw;
+  }
+
+  section > blockquote > p {
+    font-size: 3.5vw;
   }
 
   .soc {
