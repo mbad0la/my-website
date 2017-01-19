@@ -207,6 +207,10 @@ section > p > img {
   margin-top: 5px;
 }
 
+blockquote {
+  font-family: "Gloria Hallelujah", cursive;
+}
+
 /*
 Thanks to this codepen : https://codepen.io/ruandre/pen/howFi
 */
