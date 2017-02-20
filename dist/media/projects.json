@@ -20,6 +20,29 @@
     ]
   },
   {
+    "html_url": "https://github.com/mbad0la/attendant",
+    "name": "Attendant",
+    "ownership": "Collaborator",
+    "description": "<p>Attendant is a seminar/classroom producitivity tool built for Diro Labs at T-Hacks'17. This project claimed third spot at the hackathon</p>",
+    "technologies": [
+      "javascript",
+      "html",
+      "css"
+    ]
+  },
+  {
+    "html_url": "https://github.com/prabhakar267/aware",
+    "name": "Aware",
+    "ownership": "Collaborator",
+    "description": "<p>Platform for people to raise their opinions and concerns related to environment and pollution in their locality</p><p>The platform uses this data to access the 'cleanliness', 'greenery' and 'livability' of areas</p>",
+    "technologies": [
+      "python",
+      "javascript",
+      "html",
+      "css"
+    ]
+  },
+  {
     "html_url": "https://github.com/mbad0la/octopy",
     "name": "octopy",
     "ownership": "Owner",
