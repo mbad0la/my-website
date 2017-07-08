@@ -146,10 +146,10 @@ class About extends Component {
   render() {
     return (
       <section id="about">
-        <h1>Howdy!</h1>
+        <h1>Hey folks!</h1>
         <p>Mayank Badola here.</p>
         <p>
-          I will be graduating from Netaji Subhas Institute of Technology in 2017 with B.E. in Computer Engineering.
+          I recently graduated from Netaji Subhas Institute of Technology, Delhi with B.E. in Computer Engineering
         </p>
         <p style={{ fontFamily: '"Gloria Hallelujah", cursive' }}>I</p>
         <p style={{ color: '#ff3131', fontSize: 34 }}>&#10084;</p>
