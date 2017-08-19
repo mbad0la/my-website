@@ -1,0 +1,21 @@
+{
+  "name": "MB Canvas",
+  "short_name": "MB Canvas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#1b1b1b",
+  "description": "Personal WebApp of Mayank Badola",
+  "icons": [
+    {
+      "src": "/media/me.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    },
+    {
+      "src": "/media/me.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    }
+  ]
+}

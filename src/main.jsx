@@ -2,6 +2,15 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, IndexRoute, NotFoundRoute, Link, browserHistory } from 'react-router'
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/worker.js', {
+      scope: '/'
+    })
+    .then(reg => console.log(`Service worker instantiated with scope : ${reg.scope}`))
+    .catch(err => console.log(`Service worker registration failed because : ${err}`))
+}
+
 class Nav extends Component {
 
   constructor(props) {

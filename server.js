@@ -18,6 +18,14 @@ app.get('/posts/:post', (req, res) => {
   res.send({ markdown: fs.readFileSync(__dirname + '/dist/posts/' + req.params.post + '.md').toString() })
 })
 
+app.get('/manifest.json', (req, res) => {
+  res.sendFile(__dirname + '/manifest.json')
+})
+
+app.get('/worker.js', (req, res) => {
+  res.sendFile(__dirname + '/worker.js')
+})
+
 app.get(/.*/, (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
