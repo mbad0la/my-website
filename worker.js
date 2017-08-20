@@ -1,6 +1,26 @@
+// greedy caching
+const currentCache = 'hack_v6'
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(currentCache).then(function(cache) {
+      return cache.addAll([
+        '/',
+        '/blog',
+        '/projects',
+        '/css/website.css',
+        '/js/website.js',
+        '/js/0.website.js',
+        '/js/1.website.js',
+        '/js/2.website.js'
+      ])
+    })
+  )
+})
+
 self.addEventListener('activate', function(event) {
   console.log('Activating ...')
-  var cacheWhitelist = ['hack_v5']
+  let cacheWhitelist = [currentCache]
 
   event.waitUntil(
     caches
@@ -15,7 +35,6 @@ self.addEventListener('activate', function(event) {
   )
 })
 
-// greedy cache
 self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches
@@ -23,7 +42,7 @@ self.addEventListener('fetch', function (event) {
     .then(function (response) {
       return response || fetch(event.request).then(function (response) {
         if (event.request.url.indexOf(self.location.hostname) != -1) {
-          return caches.open('hack_v5').then(function(cache) {
+          return caches.open(currentCache).then(function(cache) {
             cache.put(event.request, response.clone())
             return response
           })
