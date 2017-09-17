@@ -21,7 +21,7 @@ app.get('/media/:file', (req, res) => {
 })
 
 app.get('/posts/:post', (req, res) => {
-  res.send({ markdown: fs.readFileSync('../../posts/' + req.params.post + '.md').toString() })
+  res.send({ markdown: fs.readFileSync(path.resolve('./dist/posts/' + req.params.post + '.md')).toString() })
 })
 
 app.get('/manifest.json', (req, res) => {
