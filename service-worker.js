@@ -1,5 +1,5 @@
 // greedy caching
-const currentCache = 'hack_v6'
+const currentCache = 'hack_v7'
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
