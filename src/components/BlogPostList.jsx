@@ -38,11 +38,13 @@ class BlogPostList extends Component {
   componentWillMount() {
     this.props.changeRoute('blog')
 
-    axios.get('/media/meta.json')
-      .then(res => {
-        this.setState({ posts: res.data })
-      })
-      .catch(err => console.log(err))
+    if (process.title === 'browser') {
+      axios.get('/media/meta.json')
+        .then(res => {
+          this.setState({ posts: res.data })
+        })
+        .catch(err => console.log(err))
+    }
   }
 
   render() {

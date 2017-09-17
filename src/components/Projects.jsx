@@ -15,14 +15,16 @@ class ProjectList extends Component {
   componentWillMount() {
     this.props.changeRoute('projects')
 
-    axios.get('/media/colorcode.json')
-      .then(res => {
-        let coding = res.data
-        axios.get('/media/projects.json')
-          .then(res => this.setState({colorCode: coding, projects: res.data}))
-          .catch(err => console.log(err))
-      })
-      .catch(err => console.log(err))
+    if (process.title === 'browser') {
+      axios.get('/media/colorcode.json')
+        .then(res => {
+          let coding = res.data
+          axios.get('/media/projects.json')
+            .then(res => this.setState({colorCode: coding, projects: res.data}))
+            .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+    }
   }
 
   render() {

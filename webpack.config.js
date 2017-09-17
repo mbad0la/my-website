@@ -3,7 +3,7 @@ const path = require('path')
 module.exports = {
   entry: './src/main.jsx',
   output: {
-    path: path.resolve('./dist/js/'),
+    path: path.resolve('./dist/js/client'),
     publicPath: '/js/',
     filename: 'website.js',
     chunkFilename: '[id].website.js'

@@ -5,9 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "webpack -p",
-    "prestart": "webpack",
-    "start": "node server.js"
+    "magic:client": "webpack -p",
+    "magic:server": "webpack -p --config webpack.server.config.js",
+    "prod": "npm run magic:client && npm run magic:server",
+    "build:client": "webpack",
+    "build:server": " webpack --config webpack.server.config.js",
+    "prestart": "npm run build:client && npm run build:server",
+    "start": "node ./dist/js/server/server.js"
   },
   "repository": "mbad0la/my-website",
   "author": "Mayank Badola",
@@ -21,6 +25,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "ejs": "^2.5.7",
     "express": "^4.14.0",
     "marked": "^0.3.6",
     "react": "^15.3.2",
