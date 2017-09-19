@@ -83,7 +83,7 @@ app.get(/.*/, (req, res) => {
 })
 
 const renderPage = (node, ...meta) => {
-  let title = 'Blog | ' + meta[0] || 'Mayank Badola'
+  let title = meta[0] || 'Mayank Badola'
   let description = meta[1] || 'ASDE at Expedia. Technology Enthusiast. Occasional Philosopher.'
 
   return (
