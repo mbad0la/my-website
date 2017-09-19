@@ -4,8 +4,6 @@ import { StickyContainer, Sticky } from 'react-sticky'
 import marked from 'marked'
 import axios from 'axios'
 
-let metaCache = {}
-
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -45,7 +43,8 @@ class BlogPostWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      scrollWidth: 0
+      scrollWidth: 1,
+      date: undefined
     }
     this.changeScrollWidth = this.changeScrollWidth.bind(this)
   }
@@ -56,18 +55,18 @@ class BlogPostWrapper extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.changeRoute('post')
 
-    if (metaCache[this.props.params.post] == undefined) {
-      axios.get('/media/meta.json')
-        .then(res => {
-          res.data.forEach((d,k) => {
-            metaCache[d.post_name] = d.date
-          })
+    axios.get('/media/meta.json')
+      .then(res => {
+        let post = res.data.filter((d,k) => {
+          return d.post_name === this.props.params.post
         })
-        .catch(err => console.log(err))
-    }
+
+        this.setState({ date: post[0].date })
+      })
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -75,9 +74,9 @@ class BlogPostWrapper extends Component {
     return (
       <StickyContainer>
         <Sticky>
-          <BlogPostHead meta={{ heading: cleanHeading, date: metaCache[this.props.params.post] }} length={this.state.scrollWidth}/>
+          <BlogPostHead meta={{ heading: cleanHeading, date: this.state.date }} length={this.state.scrollWidth}/>
         </Sticky>
-        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post}/>
+        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post} content={this.props.content}/>
       </StickyContainer>
     )
   }
@@ -98,20 +97,25 @@ class BlogPostHead extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
+    if (process.title === 'browser') {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll)
+    if (process.title === 'browser') {
+      window.removeEventListener('scroll', this.handleScroll)
+    }
   }
 
   render() {
+    let _window = (process.title === 'browser') ? window : { innerWidth: 0 }
     let barStyles = {
       display: 'block',
       height: 4,
       backgroundColor: '#88de88',
       boxShadow: '2px 0px 2px lightgreen',
-      width: (this.state.barLength / this.props.length) * window.innerWidth
+      width: (this.state.barLength / this.props.length) * _window.innerWidth
     }
     return (
       <div>
@@ -135,7 +139,7 @@ class MarkdownWrapper extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('/posts/' + this.props.post)
       .then(res => {
         this.setState(res.data)
@@ -146,6 +150,12 @@ class MarkdownWrapper extends Component {
   }
 
   render() {
+    if (process.title !== 'browser' && this.props.content) {
+      return (
+        <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.props.content) }}></section>
+      )
+    }
+
     if (this.state.markdown != null) {
       return (
         <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>

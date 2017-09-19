@@ -8,14 +8,14 @@ class Nav extends Component {
     this.state = {
       nav: {
         about: true,
-        blog: false
+        blog: false,
+        projects: false
       }
     }
     this.changeRoute = this.changeRoute.bind(this)
   }
 
   changeRoute(newRoute) {
-    console.log('changing route')
     let about = newRoute === "about" ? true : false
     let blog = newRoute === "blog" ? true : false
     let projects = newRoute === "projects" ? true : false
@@ -39,7 +39,7 @@ class Nav extends Component {
             <li className={ this.state.nav["projects"] ? `active` : `off` }><Link to={`/projects`}>Projects</Link></li>
           </ul>
         </nav>
-        { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute }) }
+        { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute, content: this.props.content }) }
       </div>
     )
   }
