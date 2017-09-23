@@ -97,10 +97,11 @@ const renderPage = (node, ...meta) => {
           <meta itemprop="image" content="http://mayankbadola.me/media/me.jpg">
           <meta name="twitter:card" content="summary">
           <meta name="twitter:site" content="@mbad0la">
-          <meta name="twitter:title" content="Mayank Badola">
-          <meta name="twitter:description" content="ASDE at Expedia. Technology Enthusiast. Occasional Philosopher.">
+          <meta name="twitter:title" content="${title}">
+          <meta name="twitter:description" content="${description}">
           <meta property="og:type" content="article">
-          <meta property="og:title" content="Mayank Badola">
+          <meta property="og:title" content="${title}">
+          <meta property="og:description" content="${description}">
           <meta property="og:site_name" content="Mayank Badola">
           <meta property="og:url" content="http://mayankbadola.me">
           <meta property="og:image" content="http://mayankbadola.me/media/me.jpg">
