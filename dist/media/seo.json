@@ -1,0 +1,59 @@
+{
+  "/": {
+    "title": "Mayank Badola",
+    "description": "ASDE at Expedia. Technology Enthusiast. Occasional Philosopher.",
+    "keywords": "Mayank Badola, mayank badola, mayank, mbad0la, github, GitHub, NSIT, Netaji Subhas Institute of Technology, Developer, Web Developer, Software Developer, JavaScript Developer, Software Engineer, Open Source, DuckDuckGo, Fossasia, Hoodie, Mozpacers, ODIN, Open Development Initiative - NSIT, Collegespace, Machine Learning, Big Data, Udacity, Udacity India, Expedia, ASDE, The Air Force School, TAFS, TAFSian"
+  },
+  "/blog": {
+    "title": "Blog",
+    "description": "Random memiors and some copied text...",
+    "keywords": "Mayank Badola, mayank badola, mbad0la, github, blog, post, blogpost, content, writer, medium.com, medium, text, article, list"
+  },
+  "/blog/winter-wonderland": {
+    "title": "winter-wonderland",
+    "date": "19.1.2017",
+    "description": "The rehearsal before the after-college-show",
+    "keywords": "internship, money, mayank, stipend, experience, indian, tech, help me build, smartmirror, networking, network, blog, post, article"
+  },
+  "/blog/dotA-meets-blog": {
+    "title": "dotA-meets-blog",
+    "date": "22.11.2016",
+    "description": "Let's get you acquainted with DotA",
+    "keywords": "defense of the ancients, dota, dotA, online, game, strategy, mayank badola, mayank, geek, internet, blog, post, article"
+  },
+  "/blog/hacking-the-hacktober": {
+    "title": "hacking-the-hacktober",
+    "date": "21.11.2016",
+    "description": "All about my experience of Hacktoberfest 2016",
+    "keywords": "Hacktoberfest, github, digital ocean, digitalocean, open source, hoodie, mayank badola, mayank, mbad0la, unit test, duckduckgo, tshirt, pull requests, contribution, blog, post, article"
+  },
+  "/blog/react-101": {
+    "title": "react-101",
+    "date": "16.11.2016",
+    "description": "Setting up a Development Environment for React",
+    "keywords": "react, setup, github, mbad0la, mayank, mayank badola, babel, webpack, transpiling, bundling, npm start, environment, beginner, blog, post, article"
+  },
+  "/blog/a-taste-of-cloud": {
+    "title": "a-taste-of-cloud",
+    "date": "14.11.2016",
+    "description": "A brief overview of Cloud and AWS",
+    "keywords": "cloud, aws, ec2, beanstalk, mayank badola, aws lambda, lambda, hosting, infrastructure, platform, digitalocean, data centers, blog, post, article"
+  },
+  "/blog/social-media-scan": {
+    "title": "social-media-scan",
+    "date": "1.9.2016",
+    "description": "My Summer Intern Experience at Precog",
+    "keywords": "IIIT-D, summer, internship, mayank, badola, ponnurangam, kumaraguru, social, media, analytics, celery, storm, divyansh, archit, carnegie, mellon, blog, post, article"
+  },
+  "/blog/how-to-not-be-fake": {
+    "title": "how-to-not-be-fake",
+    "date": "1.2.2016",
+    "description": "An introspection of humanity",
+    "keywords": "philosophy, humanity, instrospection, mayank, badola, fake, better, lives, love, happiness, blog, post, article"
+  },
+  "/projects": {
+    "title": "Projects",
+    "description": "One-night hacks, two-night hacks... you get the idea, right?",
+    "keywords": "projects, open, source, commits, architect, dove, attendant, github, mbad0la, mayank, badola, stars, trending, hacks, hackathons, personal, portfolio"
+  }
+}

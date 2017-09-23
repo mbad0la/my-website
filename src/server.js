@@ -9,6 +9,8 @@ import { renderToString } from 'react-dom/server'
 import { match, RouterContext } from 'react-router'
 import routes from './components/Routes.jsx'
 
+const routeMetaInformation = JSON.parse(fs.readFileSync(path.resolve('./dist/media/seo.json')))
+
 app.get('/js/:file', (req, res) => {
   res.sendFile(path.resolve(`./dist/js/client/${req.params.file}`))
 })
@@ -72,20 +74,19 @@ app.get(/.*/, (req, res) => {
           })
 
           let title = contextProps.params.post.split('-').map(str => str.charAt(0).toUpperCase() + str.slice(1)).join(' ')
-          res.send(renderPage(appHtml, title, post[0].summary))
+          res.send(renderPage(appHtml, routeMetaInformation[contextProps.location.pathname]))
         })
         .catch(err => console.log(err))
     } else {
       const appHtml = renderToString(<RouterContext { ...contextProps } />)
-      res.send(renderPage(appHtml))
+      res.send(renderPage(appHtml, routeMetaInformation[contextProps.location.pathname]))
     }
   })
 })
 
-const renderPage = (node, ...meta) => {
-  let title = meta[0] || 'Mayank Badola'
-  let description = meta[1] || 'ASDE at Expedia. Technology Enthusiast. Occasional Philosopher.'
-
+const renderPage = (node, meta) => {
+  let { title, description, keywords } = meta || routeMetaInformation['/']
+  console.log(meta)
   return (
     `
       <!DOCTYPE html>
@@ -93,7 +94,7 @@ const renderPage = (node, ...meta) => {
         <head>
           <title>${title}</title>
           <meta name="description" content="${description}">
-          <meta name="keywords" content="Mayank Badola, mayank badola, mayank, mbad0la, github, GitHub, NSIT, Netaji Subhas Institute of Technology, Developer, Web Developer, Software Developer, JavaScript Developer, Software Engineer, Open Source, DuckDuckGo, Fossasia, Hoodie, Mozpacers, ODIN, Open Development Initiative - NSIT, Collegespace, Machine Learning, Big Data, Udacity, Udacity India, Expedia, ASDE, The Air Force School, TAFS, TAFSian">
+          <meta name="keywords" content="${keywords}">
           <meta itemprop="image" content="http://mayankbadola.me/media/me.jpg">
           <meta name="twitter:card" content="summary">
           <meta name="twitter:site" content="@mbad0la">
