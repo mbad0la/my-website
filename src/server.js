@@ -11,6 +11,13 @@ import routes from './components/Routes.jsx'
 
 const routeMetaInformation = JSON.parse(fs.readFileSync(path.resolve('./dist/media/seo.json')))
 
+const blogPosts = {}
+
+fs.readdirSync(path.resolve('./dist/posts'))
+  .forEach(blogName => {
+    blogPosts[`/blog/${blogName.slice(0, blogName.length - 3)}`] = fs.readFileSync(path.resolve('./dist/posts/' + blogName)).toString()
+  })
+
 app.get('/js/:file', (req, res) => {
   res.sendFile(path.resolve(`./dist/js/client/${req.params.file}`))
 })
@@ -48,16 +55,7 @@ app.get('/pwafy', (req, res) => {
 app.get(/.*/, (req, res) => {
   match({ routes: routes, location: req.url }, (err, redirect, contextProps) => {
     if (/\/blog\/[a-zA-Z]+/.exec(contextProps.location.pathname)) {
-      let postEndpoint = contextProps.location.pathname.replace('blog', 'posts')
-
-      let content = undefined
-
-      try {
-        content = fs.readFileSync(path.resolve('./dist/' + postEndpoint + '.md')).toString()
-      } catch(ex) {
-        content = 'This content doesn\'t exist ...'
-      }
-
+      let content = blogPosts[contextProps.location.pathname] || 'This content doesn\'t exist ...'
 
       const appHtml = renderToString(
         <RouterContext
@@ -66,17 +64,7 @@ app.get(/.*/, (req, res) => {
         />
       )
 
-      // fs.readFileSync(path.resolve('./dist/posts/' + req.params.post + '.md')).toString()
-      axios.get('https://mayankbadola.me/media/meta.json')
-        .then(result => {
-          let post = result.data.filter((d,k) => {
-            return d.post_name === contextProps.params.post
-          })
-
-          let title = contextProps.params.post.split('-').map(str => str.charAt(0).toUpperCase() + str.slice(1)).join(' ')
-          res.send(renderPage(appHtml, routeMetaInformation[contextProps.location.pathname]))
-        })
-        .catch(err => console.log(err))
+      res.send(renderPage(appHtml, routeMetaInformation[contextProps.location.pathname]))
     } else {
       const appHtml = renderToString(<RouterContext { ...contextProps } />)
       res.send(renderPage(appHtml, routeMetaInformation[contextProps.location.pathname]))
@@ -86,7 +74,9 @@ app.get(/.*/, (req, res) => {
 
 const renderPage = (node, meta) => {
   let { title, description, keywords } = meta || routeMetaInformation['/']
-  console.log(meta)
+
+  title = title.split('-').map(str => str.charAt(0).toUpperCase() + str.slice(1)).join(' ')
+
   return (
     `
       <!DOCTYPE html>
