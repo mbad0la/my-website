@@ -6,9 +6,13 @@ class LoadComponent extends Component {
     super(props)
 
     this.state = {
-      component: null,
+      component: LoadComponent.prefetchedComponent,
       path: null
     }
+  }
+
+  static prefetchComponent(component) {
+    LoadComponent.prefetchedComponent = component
   }
 
   componentWillMount() {
@@ -28,12 +32,14 @@ class LoadComponent extends Component {
   }
 
   render() {
-    const Component = (this.state.component && this.state.component.default) || null
+    const Component = LoadComponent.prefetchedComponent || (this.state.component && this.state.component.default) || null
     const props = this.props
 
     return Component ? <Component {...props} /> : null
   }
 
 }
+
+LoadComponent.prefetchedComponent = null
 
 export default LoadComponent

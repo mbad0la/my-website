@@ -134,7 +134,7 @@ class MarkdownWrapper extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      markdown: null,
+      markdown: null
     }
   }
 
