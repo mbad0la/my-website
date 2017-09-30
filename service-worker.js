@@ -1,5 +1,4 @@
-// greedy caching
-const currentCache = 'hack_v8'
+const currentCache = 'hack_v9'
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -8,11 +7,7 @@ self.addEventListener('install', function(event) {
         '/',
         '/blog',
         '/projects',
-        '/css/website.css',
-        '/js/website.js',
-        '/js/0.website.js',
-        '/js/1.website.js',
-        '/js/2.website.js'
+        '/css/website.css'
       ])
     })
   )

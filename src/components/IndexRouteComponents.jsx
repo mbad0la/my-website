@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 
-import BlogPostList from './BlogPostList.jsx'
-import BlogPostWrapper from './BlogPostComponents.jsx'
-import ProjectList from './Projects.jsx'
+import LoadComponent from './LoadComponent.jsx'
 
 class App extends Component {
 
@@ -39,10 +37,26 @@ class App extends Component {
           </ul>
         </nav>
         <Switch>
-          <Route exact path='/' render={() => <About />} />
-          <Route exact path='/blog' render={() => <BlogPostList />} />
-          <Route exact path='/blog/:post' render={({ match })  => <BlogPostWrapper { ...match } />} />
-          <Route exact path='/projects' render={() => <ProjectList />} />
+          <Route
+            exact
+            path='/'
+            render={() => <About />}
+          />
+          <Route
+            exact
+            path='/blog'
+            render={({ match }) => <LoadComponent { ...match } loadComponent={() => import(/* webpackChunkName: "blog-list" */ './BlogPostList.jsx')} />}
+          />
+          <Route
+            exact
+            path='/blog/:post'
+            render={({ match }) => <LoadComponent { ...match } loadComponent={() => import(/* webpackChunkName: "blog-post" */ './BlogPostComponents.jsx')} />}
+          />
+          <Route
+            exact
+            path='/projects'
+            render={({ match }) => <LoadComponent { ...match } loadComponent={() => import(/* webpackChunkName: "project-list" */ './Projects.jsx')} />}
+          />
         </Switch>
       </div>
     )
