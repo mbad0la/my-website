@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Router, browserHistory } from 'react-router'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import routes from './components/Routes.jsx'
+import App from './components/IndexRouteComponents.jsx'
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker
@@ -13,4 +13,9 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.log(`Service worker registration failed because : ${err}`))
 }
 
-ReactDOM.render(<Router routes={routes} history={browserHistory} />, document.getElementById("root"))
+ReactDOM.render(
+  <Router>
+    <Route component={App} />
+  </Router>
+  , document.getElementById("root")
+)

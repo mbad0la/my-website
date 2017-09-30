@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
+import { Switch, Route, Link } from 'react-router-dom'
 
-class Nav extends Component {
+import BlogPostList from './BlogPostList.jsx'
+import BlogPostWrapper from './BlogPostComponents.jsx'
+import ProjectList from './Projects.jsx'
+
+class App extends Component {
 
   constructor(props) {
     super(props)
@@ -39,7 +43,12 @@ class Nav extends Component {
             <li className={ this.state.nav["projects"] ? `active` : `off` }><Link to={`/projects`}>Projects</Link></li>
           </ul>
         </nav>
-        { React.cloneElement(this.props.children, { key: this.props.location.pathname, changeRoute: this.changeRoute, content: this.props.content }) }
+        <Switch>
+          <Route exact path='/' render={() => <About changeRoute={this.changeRoute} />} />
+          <Route exact path='/blog' render={() => <BlogPostList changeRoute={this.changeRoute} />} />
+          <Route exact path='/blog/:post' render={({ match })  => <BlogPostWrapper { ...match } changeRoute={this.changeRoute} />} />
+          <Route exact path='/projects' render={() => <ProjectList changeRoute={this.changeRoute} />} />
+        </Switch>
       </div>
     )
   }
@@ -130,4 +139,4 @@ class About extends Component {
 
 }
 
-export { Nav, About }
+export default App

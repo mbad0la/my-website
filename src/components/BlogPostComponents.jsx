@@ -71,12 +71,13 @@ class BlogPostWrapper extends Component {
 
   render() {
     let cleanHeading = this.props.params.post.split('-').join(' ')
+
     return (
       <StickyContainer>
         <Sticky>
           <BlogPostHead meta={{ heading: cleanHeading, date: this.state.date }} length={this.state.scrollWidth}/>
         </Sticky>
-        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post} content={this.props.content}/>
+        <MarkdownWrapper updateLength={this.changeScrollWidth} post={this.props.params.post} />
       </StickyContainer>
     )
   }
@@ -150,12 +151,6 @@ class MarkdownWrapper extends Component {
   }
 
   render() {
-    if (process.title !== 'browser' && this.props.content) {
-      return (
-        <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.props.content) }}></section>
-      )
-    }
-
     if (this.state.markdown != null) {
       return (
         <section id='blog-post'  dangerouslySetInnerHTML={{ __html: marked(this.state.markdown) }}></section>
