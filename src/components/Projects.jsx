@@ -13,8 +13,6 @@ class ProjectList extends Component {
   }
 
   componentWillMount() {
-    this.props.changeRoute('projects')
-
     if (process.title === 'browser') {
       axios.get('/media/colorcode.json')
         .then(res => {

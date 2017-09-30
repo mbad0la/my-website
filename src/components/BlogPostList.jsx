@@ -36,8 +36,6 @@ class BlogPostList extends Component {
   }
 
   componentWillMount() {
-    this.props.changeRoute('blog')
-
     if (process.title === 'browser') {
       axios.get('/media/meta.json')
         .then(res => {

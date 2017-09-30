@@ -56,8 +56,6 @@ class BlogPostWrapper extends Component {
   }
 
   componentDidMount() {
-    this.props.changeRoute('post')
-
     axios.get('/media/meta.json')
       .then(res => {
         let post = res.data.filter((d,k) => {

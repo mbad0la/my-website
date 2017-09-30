@@ -9,27 +9,7 @@ class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      nav: {
-        about: true,
-        blog: false,
-        projects: false
-      }
-    }
-    this.changeRoute = this.changeRoute.bind(this)
-  }
-
-  changeRoute(newRoute) {
-    let about = newRoute === "about" ? true : false
-    let blog = newRoute === "blog" ? true : false
-    let projects = newRoute === "projects" ? true : false
-    this.setState({
-      "nav": {
-        "about": about,
-        "blog": blog,
-        "projects": projects
-      }
-    })
+    this.state = {}
   }
 
   render() {
@@ -38,16 +18,31 @@ class App extends Component {
         <nav>
           <div className="my-img"></div>
           <ul>
-            <li className={ this.state.nav["about"] ? `active` : `off` }><Link to={`/`}>About</Link></li>
-            <li className={ this.state.nav["blog"] ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
-            <li className={ this.state.nav["projects"] ? `active` : `off` }><Link to={`/projects`}>Projects</Link></li>
+            <Route
+              path='/'
+              children={({location}) => {
+                return <li className={ location.pathname === '/' ? `active` : `off` }><Link to={`/`}>About</Link></li>
+              }}
+            />
+            <Route
+              path='/blog'
+              children={({location}) => {
+                return <li className={ location.pathname === '/blog' ? `active` : `off` }><Link to={`/blog`}>Blog</Link></li>
+              }}
+            />
+            <Route
+              path='/projects'
+              children={({location}) => {
+                return <li className={ location.pathname === '/projects' ? `active` : `off` }><Link to={`/projects`}>Projects</Link></li>
+              }}
+            />
           </ul>
         </nav>
         <Switch>
-          <Route exact path='/' render={() => <About changeRoute={this.changeRoute} />} />
-          <Route exact path='/blog' render={() => <BlogPostList changeRoute={this.changeRoute} />} />
-          <Route exact path='/blog/:post' render={({ match })  => <BlogPostWrapper { ...match } changeRoute={this.changeRoute} />} />
-          <Route exact path='/projects' render={() => <ProjectList changeRoute={this.changeRoute} />} />
+          <Route exact path='/' render={() => <About />} />
+          <Route exact path='/blog' render={() => <BlogPostList />} />
+          <Route exact path='/blog/:post' render={({ match })  => <BlogPostWrapper { ...match } />} />
+          <Route exact path='/projects' render={() => <ProjectList />} />
         </Switch>
       </div>
     )
@@ -103,8 +98,6 @@ class About extends Component {
   }
 
   componentWillMount() {
-    this.props.changeRoute('about')
-
     if (process.title === 'browser') {
       this.interval = setInterval(this.shiftOutput, 800)
     }
