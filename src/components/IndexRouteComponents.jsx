@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div>
         <nav>
-          <div className="my-img"></div>
+          <Link to="/"><div className="my-img"></div></Link>
           <ul>
             <Route
               path='/'
